@@ -10,7 +10,7 @@ export class ListadoComponent implements OnInit {
 
   heroes:string[] = ["Spoderman","Orin man", "Thortilla","Hush"];
   heroeBorrado:string = "";
-
+  heroeGuardado:string = "";
   constructor() { }
 
   ngOnInit(): void {
@@ -20,6 +20,7 @@ export class ListadoComponent implements OnInit {
 
     this.heroes.forEach((element, index) =>{
       if(element === heroe){
+        this.heroeBorrado = heroe;
         this.heroes.splice(index,1);
       }
     })
@@ -33,6 +34,10 @@ export class ListadoComponent implements OnInit {
     this.heroes.splice(0,1);
     //this.heroes.splice(this.heroes.length,1);
     this.heroeBorrado = firstHero;
+  }
+
+  guardarHeroe(heroe:string){
+    this.heroeGuardado = heroe;
   }
 
 }
