@@ -1,6 +1,6 @@
 <ng-template>
   <div *ngFor="let heroe of heroes">
-    <span (click)="guardarHeroe()">{{ heroe }}</span> <img src="../../../assets/232227.png" (click)="borrarHeroe(heroe)" >
+    <span (click)="guardarHeroe(heroe)">{{ heroe }}</span> <img src="../../../assets/232227.png" (click)="borrarHeroe(heroe)" >
   </div>
   <div *ngIf="heroeBorrado == ''">No se ha borrado ningún héroe</div>
   <div *ngIf="heroeBorrado != ''">Se ha borrado el heroe {{heroeBorrado}}</div>
