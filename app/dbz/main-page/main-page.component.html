@@ -1,0 +1,14 @@
+<ng-container>
+  <div *ngFor="let item of personajes">{{item.getNombre()}} {{item.getPoder()}}</div>
+</ng-container>
+
+
+
+<ng-container >
+  <form #form="ngForm" (ngSubmit)="addPersonaje()">
+    <input type="text" name="nombre" [(ngModel)]="nombreNuevoPersonaje" placeholder="Nombre del personaje">
+    <input type="number" name="poder" [(ngModel)]="poderNuevoPersonaje" placeholder="Poder del personaje">
+
+    <button type="submit" >Guardar Personaje</button>
+  </form>
+</ng-container>
