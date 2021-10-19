@@ -1,1 +1,12 @@
-<label *ngFor="let heroe of heroes"> {{heroe}} </label>
+<ng-container>
+  <div *ngFor="let heroe of heroes">
+    <span (click)="guardarHeroe(heroe)">{{ heroe }}</span> <img style="width: 20px;" src="../../../assets/232227.png" (click)="borrarHeroe(heroe)" >
+  </div>
+
+</ng-container>
+<ng-container *ngIf="heroeBorrado != '';else noBorrado"><br>Se ha borrado el heroe {{heroeBorrado}}</ng-container>
+<ng-template #noBorrado><br>No se ha borrado ningún héroe</ng-template>
+<ng-container *ngIf="heroeGuardado != ''; else noGuardado"><br>Heroe seleccionado {{heroeGuardado}}<br></ng-container>
+<ng-template #noGuardado><br>No se ha seleccionado ningún héroe<br></ng-template>
+
+<button (click)="borrarPrimerUltimo()">Borrar heroe</button>
