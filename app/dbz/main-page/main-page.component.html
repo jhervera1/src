@@ -1,6 +1,6 @@
 <ng-container >
   <div class="list">
-    <div *ngFor="let item of personajes">{{item.getNombre()}} {{item.getPoder()}}</div>
+    <app-personajes [personajes]="personajes"></app-personajes>
   </div>
 
 </ng-container>
@@ -8,14 +8,6 @@
 
 
 <ng-container >
-  <div class="form">
-    <form #form="ngForm" (ngSubmit)="addPersonaje()">
-      <input type="text" name="nombre" [(ngModel)]="nombreNuevoPersonaje" placeholder="Nombre del personaje">
-      <br>
-      <input type="number" name="poder" [(ngModel)]="poderNuevoPersonaje" placeholder="Poder del personaje">
-      <br>
-      <button type="submit" >Guardar Personaje</button>
-    </form>
-  </div>
+<app-agregar (onNuevoPersonaje)="agregarPersonaje($event)" [personajes]="personajes"></app-agregar>
 
 </ng-container>

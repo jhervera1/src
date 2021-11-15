@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Personaje } from 'src/app/Interface/dbz.interface';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -11,7 +12,10 @@ export class MainPageComponent implements OnInit {
   personajes:Personaje[] = [];
   nombreNuevoPersonaje:string = "";
   poderNuevoPersonaje:number = 0;
-
+  personaje: Personaje = {
+    nombre:"",
+    poder:0
+  }
   constructor() {
     this.iniciatePersonajes();
    }
@@ -20,35 +24,12 @@ export class MainPageComponent implements OnInit {
   }
 
   iniciatePersonajes():void{
-    this.personajes.push(new Personaje("Goku",1000000000000000),new Personaje("Yamcha",-1));
+    this.personajes.push({nombre:"Goku",poder:1000000000000000},{nombre:"Yamcha",poder:-1});
   }
 
-  addPersonaje():void{
-    console.log(this.nombreNuevoPersonaje,this.poderNuevoPersonaje)
-    this.personajes.push(new Personaje(this.nombreNuevoPersonaje,this.poderNuevoPersonaje));
+  agregarPersonaje(data:Personaje){
+    this.personajes.push(data);
   }
-
 }
 
-export class Personaje{
-  private nombre:string = "";
-  private poder:number = 0;
 
-  constructor(nombre:string, poder:number){
-    this.nombre = nombre;
-    this.poder = poder;
-  }
-
-  setNombre(nombre:string):void{
-    this.nombre = nombre;
-  }
-  getNombre():string{
-    return this.nombre;
-  }
-  setPoder(poder:number):void{
-    this.poder = poder;
-  }
-  getPoder():number{
-    return this.poder;
-  }
-}

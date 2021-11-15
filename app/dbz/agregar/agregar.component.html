@@ -1,0 +1,9 @@
+<div class="form">
+  <form #form="ngForm" (ngSubmit)="addPersonaje()">
+    <input type="text" name="nombre" [(ngModel)]="personaje.nombre" placeholder="Nombre del personaje">
+    <br>
+    <input type="number" name="poder" [(ngModel)]="personaje.poder" placeholder="Poder del personaje">
+    <br>
+    <button type="submit" >Guardar Personaje</button>
+  </form>
+</div>
